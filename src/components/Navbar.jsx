@@ -18,8 +18,8 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
 				>
 					{darkTheme ? '💡 Light' : '🌙 Dark'}
 				</button>
-				<Search />
 			</div>
+			<Search />
 		</div>
 	)
 }

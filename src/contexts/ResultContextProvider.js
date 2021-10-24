@@ -7,7 +7,7 @@ export const ResultContextProvider = ({ children }) => {
 
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [searchTerm, setSearchTerm] = useState('Elon Musk');
+	const [searchTerm, setSearchTerm] = useState('');
 
 	const getResults = async (type) => {
 
@@ -25,7 +25,6 @@ export const ResultContextProvider = ({ children }) => {
 		const data = await response.json();
 
 		if(type.includes('news')){
-			console.log(data);
 			setResults(data.entries);
 		} else if(type.includes('images')){
 			setResults(data.image_results);
