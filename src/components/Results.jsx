@@ -29,7 +29,7 @@ const Results = () => {
 						<div key={index} className="md:w-2/5 w-full">
 							<a href={link} target="_blank" rel="noreferrer">
 								<p className="text-sm">
-									{ title.length > 30 ? title.substring(0, 30) : title }
+									{title && title.length > 30 ? title.substring(0, 30) : title }
 								</p>
 								<p className="text-lg hover:underline dark:text-blue-300 text-blue-700">
 									{ title }
@@ -55,8 +55,8 @@ const Results = () => {
 		case '/news': 
 			return (
 				<div className="flex flex-wrap justify-between space-y-6 sm:px-56 items-center">
-				{results?.map(({ links, id, source, title }) => (
-					<div key={id} className="md:w-2/5 w-full">
+				{results?.map(({ links, id, source, title }, index) => (
+					<div key={index} className="md:w-2/5 w-full">
 						<a href={links?.[0]} target="_blank" rel="noreferrer" className="hover:underline">
 							<p className="text-lg dark:text-blue-300 text-blue-700">
 								{ title }
@@ -76,7 +76,7 @@ const Results = () => {
 				<div className="flex flex-wrap">
 					{results?.map((video, index) => (
 						<div key={index} className="p-2">
-							{video.additional_links?.[0].href && <ReactPlayer url={video.additional_links?.[0].href} controls width="355px" height="200px"/>}
+							{video.additional_links?.[0].href && <ReactPlayer key={index} url={video.additional_links?.[0].href} controls width="355px" height="200px"/>}
 						</div>
 					))}
 				</div>
